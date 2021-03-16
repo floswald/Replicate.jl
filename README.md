@@ -12,8 +12,58 @@ GitHub Actions : [![Build Status](https://github.com/floswald/Replicate.jl/workf
 
 This repo is the starter kit for your replication study for the [Numerical Methods](https://floswald.github.io/NumericalMethods/) course. Please check back with the requirements on the [course website](https://floswald.github.io/NumericalMethods/#term_project)
 
+## Automatic Setup
 
-## How to setup on your computer
+1. clone this repo to your computer. *clone*, not *fork*. Let's say you clone it into your home directory:
+    ```
+    cd
+    git clone https://github.com/floswald/Replicate.jl Replicate
+    ```
+2. choose a suitable name for your replication package. Some reference to the original author's name is probably a good idea. I will call it `your_package_name` for now. 
+4. Open `~/Replicate` in VScode
+5. Do this:
+    ```
+    ] 
+    activate .
+    instantiate .
+    ```
+6. Then, back in julia command mode
+    ```
+    using Replicate
+    Replicate.bootstrap("your_github_user","your_package_name.jl")
+    ```
+    You should then see something like this:
+    ``` 
+    Replicate.bootstrap("pinkie","Cool.jl")
+    [ Info: We'll create your package Cool.jl now
+    [ Info: Writing source code for new package Cool.jl to folder /Users/74097/git/Replicate.jl/src/../../Cool
+    Generating  project Cool:
+        ~/git/Cool/Project.toml
+        ~/git/Cool/src/Cool.jl
+    [ Info: copying .github/workflow and other scaffold code
+    Activating new environment at `~/git/Cool/test/Project.toml`
+    Resolving package versions...
+    Updating `~/git/Cool/test/Project.toml`
+    [8dfed614] + Test
+    Updating `~/git/Cool/test/Manifest.toml`
+    [2a0f44e3] + Base64
+    [8ba89e20] + Distributed
+    [b77e0a4c] + InteractiveUtils
+    [56ddb016] + Logging
+    [d6f4376e] + Markdown
+    [9a3f8284] + Random
+    [9e88b42a] + Serialization
+    [6462fe0b] + Sockets
+    [8dfed614] + Test
+    [ Info: done.
+    ```
+7. Open a new VScode window and open the folder `~/your_package_name`.
+8. Start working on it!
+9. You can deleted `~/Replicate` now.
+
+
+
+## How to setup on your computer MANUALLY
 
 1. clone this repo to your computer. *clone*, not *fork*.
 2. choose a suitable name for your replication package. Some reference to the original author's name is probably a good idea. I will call it `your_package_name` for now.
@@ -80,12 +130,13 @@ This repo is the starter kit for your replication study for the [Numerical Metho
 8. Prepare commit. For example
     ```
     cd your_package_name
+    git init
     git add .  # adds everyting
     git commit -m 'your_package_name first commit'
+    git branch -M main
     ```
-9. Delete my remote repo and add yours:
+9. add a remote:
     ```
-    git remote remove origin  # removes https://github.com/floswald/Replicate.jl
     git remote add origin https://github.com/your_user/your_package_name.jl  # adds your remote
     ```
 10. push: `git push -u origin main`
