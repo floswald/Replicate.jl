@@ -17,8 +17,8 @@ This repo is the starter kit for your replication study for the [Numerical Metho
 
 1. clone this repo to your computer
 2. choose a suitable name for your replication package. Some reference to the original author's name is probably a good idea. I will call it `your_package_name` for now.
-3. start julia in your home directoy. go into package model with `]`, then type `generate your_package_name'
-4. copy the first four lines to replace this in the file `Project.toml` at the root of this repo:
+3. start julia in your home directoy. go into package model with `]`, then type `generate your_package_name`
+4. copy the first four lines of the `Project.toml` that the preceding step created in order to replace the four lines below in the file [`Project.toml`](Project.toml) at the root of *this* repo:
     ```
     name = "Replicate"
     uuid = "e32155d0-cde9-4b54-81dd-56ea588185fd"
