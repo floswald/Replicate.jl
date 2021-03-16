@@ -17,8 +17,8 @@ This repo is the starter kit for your replication study for the [Numerical Metho
 
 1. clone this repo to your computer
 2. choose a suitable name for your replication package. Some reference to the original author's name is probably a good idea. I will call it `your_package_name` for now.
-3. start julia in your home directoy. go into package model with `]`, then type `generate your_package_name`
-4. copy the first four lines of the `Project.toml` that the preceding step created in order to replace the four lines below in the file [`Project.toml`](Project.toml) at the root of *this* repo:
+3. start julia in your home directoy. go into package mode with `]`, then type `generate your_package_name`
+4. From `~/your_package_name/Project.toml` copy the first four lines and replace the four lines below in the file [`Project.toml`](Project.toml) at the root of *this* repo:
     ```
     name = "Replicate"
     uuid = "e32155d0-cde9-4b54-81dd-56ea588185fd"
@@ -26,8 +26,8 @@ This repo is the starter kit for your replication study for the [Numerical Metho
     version = "0.1.0"
     ```
 5. delete the folder `your_package_name` in your home directory.
-5. change all occurences of `Replicate` in `src` and `test` with `your_package_name`
-6. Change the name of the cloned folder to `your_package_name`.
+5. In *this repo*, change all occurences of `Replicate` in `src` and `test` with `your_package_name`
+6. Change the name of the folder containing *this repo* to `your_package_name`.
 
 ## How to set up local documentation
 
@@ -64,7 +64,7 @@ This repo is the starter kit for your replication study for the [Numerical Metho
 
 ## How to setup up online documentation
 
-1. Create a repo on github.com called `your_package_name.jl`. 
+1. Create a repo on github.com called `your_package_name.jl`. (the `.jl` is important!)
 2. Change the relevant entries in `docs/make.jl` by replacing `Replicate.jl` with your package name.
 3. Open the folder `your_package_name` in VScode and start julia.
 4. type
@@ -91,4 +91,5 @@ This repo is the starter kit for your replication study for the [Numerical Metho
 10. push: `git push -u origin main`
 11. Wait until the machines at github actions finished testing and deploying your website. click on the blue badge to see your live docs!
 12. If you want to _avoid building the docs_ for a given commit, just include `[skip docs]` in your git commit message.
+13. If you want to _avoid running the unit tests_ for a given commit, just include `[skip ci]` in your git commit message.
 
