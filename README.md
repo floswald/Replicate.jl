@@ -1,6 +1,6 @@
 # Starter package for Replication Study
 
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://floswald.github.io/Replicate.jl/stable)
+<!-- [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://floswald.github.io/Replicate.jl/stable) -->
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://floswald.github.io/Replicate.jl/dev)
 
 GitHub Actions : [![Build Status](https://github.com/floswald/Replicate.jl/workflows/CI/badge.svg)](https://github.com/floswald/Replicate.jl/actions?query=workflow%3ACI+branch%3Amaster)
@@ -10,7 +10,7 @@ GitHub Actions : [![Build Status](https://github.com/floswald/Replicate.jl/workf
 [![codecov.io](http://codecov.io/github/floswald/Replicate.jl/coverage.svg?branch=master)](http://codecov.io/github/floswald/Replicate.jl?branch=master)
 
 
-This repo is the starter kit for your replication study for the [Numerical Methods](https://floswald.github.io/NumericalMethods/) course.
+This repo is the starter kit for your replication study for the [Numerical Methods](https://floswald.github.io/NumericalMethods/) course. Please check back with the requirements on the [course website](https://floswald.github.io/NumericalMethods/#term_project)
 
 
 ## How to setup on your computer
