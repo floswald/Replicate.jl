@@ -115,7 +115,7 @@ This repo is the starter kit for your replication study for the [Numerical Metho
 ## How to setup up online documentation
 
 1. Create a repo on github.com called `your_package_name.jl`. (the `.jl` is important!)
-2. Change the relevant entries in `docs/make.jl` by replacing `Replicate.jl` with your package name.
+2. ~Change the relevant entries in `docs/make.jl` by replacing `Replicate.jl` with your package name.~ (only relevant if you did not use the automatic setup)
 3. Open the folder `your_package_name` in VScode and start julia.
 4. type
     ```
