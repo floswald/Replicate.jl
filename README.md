@@ -117,10 +117,11 @@ This repo is the starter kit for your replication study for the [Numerical Metho
 1. Create a repo on github.com called `your_package_name.jl`. (the `.jl` is important!)
 2. ~Change the relevant entries in `docs/make.jl` by replacing `Replicate.jl` with your package name.~ (only relevant if you did not use the automatic setup)
 3. Open the folder `your_package_name` in VScode and start julia.
-4. type
+4. Activate the package in `]` mode by typing `activate .`
+5. type
     ```
     using DocumenterTools
-    using your_package_name
+    using your_package_name  # this will work only if you activated your project (see 4.)
     DocumenterTools.genkeys(user="MyUser", repo="git@github.com:MyUser/MyPackage.jl.git")
     ```
     which will return two long encrypted strings
