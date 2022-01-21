@@ -25,7 +25,7 @@ This repo is the starter kit for your replication study for the [Numerical Metho
     ```
     ] 
     activate .
-    instantiate .
+    instantiate
     ```
 6. Then, back in julia command mode
     ```
