@@ -1,25 +1,27 @@
 # Starter package for Replication Study
 
-<!-- [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://floswald.github.io/Replicate.jl/stable) -->
-[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://floswald.github.io/Replicate.jl/dev)
-
-GitHub Actions : [![Build Status](https://github.com/floswald/Replicate.jl/workflows/CI/badge.svg)](https://github.com/floswald/Replicate.jl/actions?query=workflow%3ACI+branch%3Amaster)
-
-
-[![Coverage Status](https://coveralls.io/repos/floswald/Replicate.jl/badge.svg?branch=master)](https://coveralls.io/r/floswald/Replicate.jl?branch=master)
-[![codecov.io](http://codecov.io/github/floswald/Replicate.jl/coverage.svg?branch=master)](http://codecov.io/github/floswald/Replicate.jl?branch=master)
-
-
 This repo is the starter kit for your replication study for the [Numerical Methods](https://floswald.github.io/NumericalMethods/) course. Please check back with the requirements on the [course website](https://floswald.github.io/NumericalMethods/#term_project)
 
-## Automatic Setup
+## Automatic Setup with `PkgTemplates.jl`
 
-1. clone this repo to your computer. *clone*, not *fork*. Let's say you clone it into your home directory:
+1. Make sure you have a working `git` setup on your computer and an active account on Github.com:
+    ```
+    # type ; to go into shell mode
+    shell> git config --global user.name
+    Florian Oswald
+
+    shell> git config --global user.email
+    florian.oswald@gmail.com
+
+    # if those return nothing, set with
+    git config --global user.name "Mona Lisa"
+    ```
+2. clone this repo to your computer. *clone*, not *fork*. Let's say you clone it into your home directory under the name `Replicate`, like so:
     ```
     cd
     git clone https://github.com/floswald/Replicate.jl Replicate
     ```
-2. choose a suitable name for your replication package. Some reference to the original author's name is probably a good idea. I will call it `your_package_name` for now. 
+3. choose a suitable name for your replication package. Some reference to the original author's/paper's name is probably a good idea. I will call it `your_package_name` for now. 
 4. Open `~/Replicate` in VScode
 5. Do this:
     ```
@@ -29,119 +31,78 @@ This repo is the starter kit for your replication study for the [Numerical Metho
     ```
 6. Then, back in julia command mode
     ```
-    using Replicate
-    Replicate.bootstrap("your_github_user","your_package_name.jl")
+    include("template.jl")
     ```
-    You should then see something like this:
-    ``` 
-    Replicate.bootstrap("pinkie","Cool.jl")
-    [ Info: We'll create your package Cool.jl now
-    [ Info: Writing source code for new package Cool.jl to folder /Users/74097/git/Replicate.jl/src/../../Cool
-    Generating  project Cool:
-        ~/git/Cool/Project.toml
-        ~/git/Cool/src/Cool.jl
-    [ Info: copying .github/workflow and other scaffold code
-    Activating new environment at `~/git/Cool/test/Project.toml`
+7. Create your template with
+    ```
+    my_template = make_template(your_gh_user,your_location)
+    ```
+    where `your_gh_user` is your github.com username and `your_location` is the directory on your computer where you want to create the new package (defaults to your home at `"~/"`). For example, I used it like so:
+    ```
+    julia> my_template = make_template("floswald", "/Users/floswald/SomeFolder")
+    ```
+8. Choose your package name, and create it!
+    ```
+    my_template("MyNewPackage")
+    ```
+9.  You should see something like this:
+    ```
+    julia> my_template("MyNewPackage")
+    [ Info: Running prehooks
+    [ Info: Running hooks
+    Activating project at `~/SomeFolder/MyNewPackage`
+        Updating registry at `~/.julia/registries/General.toml`
+    No Changes to `~/SomeFolder/MyNewPackage/Project.toml`
+    No Changes to `~/SomeFolder/MyNewPackage/Manifest.toml`
+    Precompiling environment...
+    1 dependency successfully precompiled in 1 seconds
+    Activating project at `~/Replicate`
+    Activating new project at `~/SomeFolder/MyNewPackage/docs`
     Resolving package versions...
-    Updating `~/git/Cool/test/Project.toml`
-    [8dfed614] + Test
-    Updating `~/git/Cool/test/Manifest.toml`
+        Updating `~/SomeFolder/MyNewPackage/docs/Project.toml`
+    [e30172f5] + Documenter v0.27.24
+        Updating `~/SomeFolder/MyNewPackage/docs/Manifest.toml`
+    [a4c015fc] + ANSIColoredPrinters v0.0.1
+    [ffbed154] + DocStringExtensions v0.9.3
+    [e30172f5] + Documenter v0.27.24
+    [b5f81e59] + IOCapture v0.2.2
+    [682c06a0] + JSON v0.21.3
+    [69de0a69] + Parsers v2.5.8
+    [21216c6a] + Preferences v1.3.0
+    [66db9d55] + SnoopPrecompile v1.0.3
     [2a0f44e3] + Base64
-    [8ba89e20] + Distributed
+    [ade2ca70] + Dates
     [b77e0a4c] + InteractiveUtils
+    [76f85450] + LibGit2
     [56ddb016] + Logging
     [d6f4376e] + Markdown
+    [a63ad114] + Mmap
+    [ca575930] + NetworkOptions v1.2.0
+    [de0858da] + Printf
+    [3fa0cd96] + REPL
     [9a3f8284] + Random
+    [ea8e919c] + SHA v0.7.0
     [9e88b42a] + Serialization
     [6462fe0b] + Sockets
+    [fa267f1f] + TOML v1.0.3
     [8dfed614] + Test
-    [ Info: done.
+    [4ec0a83e] + Unicode
+    Resolving package versions...
+        Updating `~/SomeFolder/MyNewPackage/docs/Project.toml`
+    [4689695f] + MyNewPackage v1.0.0-DEV `..`
+        Updating `~/SomeFolder/MyNewPackage/docs/Manifest.toml`
+    [4689695f] + MyNewPackage v1.0.0-DEV `..`
+    Activating project at `~/Replicate`
+    [ Info: Running posthooks
+    [ Info: New package is at /Users/floswald/SomeFolder/MyNewPackage
     ```
-7. Open a new VScode window and open the folder `~/your_package_name`.
-8. Start working on it!
-9. You can deleted `~/Replicate` now.
-
-
-
-## How to setup on your computer MANUALLY
-
-1. clone this repo to your computer. *clone*, not *fork*.
-2. choose a suitable name for your replication package. Some reference to the original author's name is probably a good idea. I will call it `your_package_name` for now.
-3. start julia in your home directoy. go into package mode with `]`, then type `generate your_package_name`
-4. From `~/your_package_name/Project.toml` copy the first four lines and replace the four lines below in the file [`Project.toml`](Project.toml) at the root of *this* repo:
+9. You can `Cmd+click` on this 👆 link to start working on your new package now in VSCode!
+10. Finally, you need to create a repository called `MyNewPackage.jl` (don't forget the `.jl`!) on `github.com`.
+11. After that is done, you can immediately from the console of your new package do
     ```
-    name = "Replicate"
-    uuid = "e32155d0-cde9-4b54-81dd-56ea588185fd"
-    authors = ["florian oswald <florian.oswald@gmail.com>"]
-    version = "0.1.0"
+    git push -u origin main
     ```
-5. delete the folder `your_package_name` in your home directory.
-5. In *this repo*, change all occurences of `Replicate` in `src` and `test` with `your_package_name`
-6. Change the name of the folder containing *this repo* to `your_package_name`.
-
-## How to set up local documentation
-
-1. Our documentation lives in folder [`docs/`](docs)
-2. You can edit the file [`docs/index.md`](docs/index.md) and of course add further `.md` pages. Check the Documenter.jl website on all the details.
-3. To build the documentation locally:
-    ```
-    cd docs  # go into the docs folder
-    julia --project=. make.jl   # type this in your terminal
-    ```
-
-    you should see this output:
-    
-    ```
-    [ Info: SetupBuildDirectory: setting up build directory.
-    [ Info: Doctest: running doctests.
-    [ Info: ExpandTemplates: expanding markdown templates.
-    [ Info: CrossReferences: building cross-references.
-    [ Info: CheckDocument: running document checks.
-    [ Info: Populate: populating indices.
-    [ Info: RenderDocument: rendering document.
-    [ Info: HTMLWriter: rendering HTML pages.
-    ┌ Warning: Documenter could not auto-detect the building environment Skipping deployment.
-    └ @ Documenter ~/.julia/packages/Documenter/6vUwN/src/deployconfig.jl:75
-    ```
-4. There is now a new folder `docs/build` which contains the produced documentation. **never commit** this folder to git!
-5. Look at the docs by typing in folder `docs`
-    ```
-    open build/index.html
-    ```
-    or by just double clicking on this html file in your file browser.
-
-
-
-## How to setup up online documentation
-
-1. Create a repo on github.com called `your_package_name.jl`. (the `.jl` is important!)
-2. ~Change the relevant entries in `docs/make.jl` by replacing `Replicate.jl` with your package name.~ (only relevant if you did not use the automatic setup)
-3. Open the folder `your_package_name` in VScode and start julia.
-4. Activate the package in `]` mode by typing `activate .`
-5. type
-    ```
-    using DocumenterTools
-    using your_package_name  # this will work only if you activated your project (see 4.)
-    DocumenterTools.genkeys(user="MyUser", repo="git@github.com:MyUser/MyPackage.jl.git")
-    ```
-    which will return two long encrypted strings
-5. Go to https://github.com/your_user/your_package_name.jl/settings/keys and click _add deploy key_ . call it `DOCUMENTER_PUBLIC` and paste the first string into it, tick _read/write access_
-6. go to https://github.com/your_user/your_package_name.jl/settings/secrets/actions and click *new repository secret*
-7. Give as *Secrete name*: `DOCUMENTER_KEY`, and paste the second long string into it.
-8. Prepare commit. For example
-    ```
-    cd your_package_name
-    git init
-    git add .  # adds everyting
-    git commit -m 'your_package_name first commit'
-    git branch -M main
-    ```
-9. add a remote:
-    ```
-    git remote add origin https://github.com/your_user/your_package_name.jl  # adds your remote
-    ```
-10. push: `git push -u origin main`
-11. Wait until the machines at github actions finished testing and deploying your website. click on the blue badge to see your live docs!
-12. If you want to _avoid building the docs_ for a given commit, just include `[skip docs]` in your git commit message.
-13. If you want to _avoid running the unit tests_ for a given commit, just include `[skip ci]` in your git commit message.
-
+    (this works only if there are some commits to push.)
+12. Notice that this will run your tests in `test` as well as build the package documentation from the doc strings you have added to your functions.
+13. You need to tell the github repo to deploy the docs from the `gh-pages` branch. I did on on this website https://github.com/floswald/MyNewPackage.jl/settings/pages (select _deploy from branch_ and then select the _gh-pages_ branch).
+14. After a couple of minutes, you should be able to view your documentation online under your user space on github spaces, i.e. for me the repo looks like [this](https://github.com/floswald/MyNewPackage.jl) and the docs look like [that](https://floswald.github.io/MyNewPackage.jl/dev/). Notice that only the `dev` version of the docs is deployed.
