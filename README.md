@@ -1,6 +1,6 @@
 # Starter package for Replication Study
 
-This repo is the starter kit for your replication study for the [Numerical Methods](https://floswald.github.io/NumericalMethods/) course. Please check back with the requirements on the [course website](https://floswald.github.io/NumericalMethods/#term_project)
+This repo is the starter kit for your replication study for the [Numerical Methods](https://floswald.github.io/NumericalMethods/) course. Please check back with the requirements on the [course website](https://floswald.github.io/NumericalMethods/#term_project).
 
 ## Automatic Setup with `PkgTemplates.jl`
 
@@ -96,13 +96,13 @@ This repo is the starter kit for your replication study for the [Numerical Metho
     [ Info: Running posthooks
     [ Info: New package is at /Users/floswald/SomeFolder/MyNewPackage
     ```
-9. You can `Cmd+click` on this 👆 link to start working on your new package now in VSCode!
-10. Finally, you need to create a repository called `MyNewPackage.jl` (don't forget the `.jl`!) on `github.com`.
-11. After that is done, you can immediately from the console of your new package do
+10. You can `Cmd+click` on this 👆 filepath to start working on your new package now in VSCode!
+11. Finally, you need to create a repository called `MyNewPackage.jl` (don't forget the `.jl`!) on `github.com`.
+12. After that is done, you can immediately from the console of your new package do
     ```
     git push -u origin main
     ```
     (this works only if there are some commits to push.)
-12. Notice that this will run your tests in `test` as well as build the package documentation from the doc strings you have added to your functions.
-13. You need to tell the github repo to deploy the docs from the `gh-pages` branch. I did on on this website https://github.com/floswald/MyNewPackage.jl/settings/pages (select _deploy from branch_ and then select the _gh-pages_ branch).
-14. After a couple of minutes, you should be able to view your documentation online under your user space on github spaces, i.e. for me the repo looks like [this](https://github.com/floswald/MyNewPackage.jl) and the docs look like [that](https://floswald.github.io/MyNewPackage.jl/dev/). Notice that only the `dev` version of the docs is deployed.
+13. Notice that this will run your tests in `test` as well as build the package documentation from the doc strings you have added to your functions.
+14. You need to tell the github repo to deploy the docs from the `gh-pages` branch. I did on this here https://github.com/floswald/MyNewPackage.jl/settings/pages (select _deploy from branch_ and then select the _gh-pages_ branch). You probably don't have access to that URL.
+15. After a couple of minutes, you should be able to view your documentation online under your user space on github spaces, i.e. for me the repo looks like [this](https://github.com/floswald/MyNewPackage.jl) and the docs look like [that](https://floswald.github.io/MyNewPackage.jl/dev/). Notice that only the `dev` version of the docs is deployed.
